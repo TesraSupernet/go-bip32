@@ -2,6 +2,7 @@ package bip32
 
 import (
 	"bytes"
+	"crypto/elliptic"
 	"crypto/sha256"
 	"encoding/binary"
 	"fmt"
@@ -9,12 +10,11 @@ import (
 	"math/big"
 
 	"github.com/FactomProject/basen"
-	"github.com/FactomProject/btcutilecc"
 	"golang.org/x/crypto/ripemd160"
 )
 
 var (
-	curve       = btcutil.Secp256k1()
+	curve       = elliptic.P256()
 	curveParams = curve.Params()
 
 	// BitcoinBase58Encoding is the encoding used for bitcoin addresses
